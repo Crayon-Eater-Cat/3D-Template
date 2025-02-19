@@ -4,8 +4,11 @@ using UnityEngine;
     This script provides jumping and movement in Unity 3D - Gatsby
 */
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
+    // Keybinds
+    public KeyCode jump, forward, backward, left, right, sprint;
+
     // Camera Rotation
     public float mouseSensitivity = 2f;
     private float verticalRotation = 0f;
@@ -14,6 +17,7 @@ public class Player : MonoBehaviour
     // Ground Movement
     private Rigidbody rb;
     public float MoveSpeed = 5f;
+    private float SprintSpeed;
     private float moveHorizontal;
     private float moveForward;
 
@@ -21,8 +25,10 @@ public class Player : MonoBehaviour
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
+    public float dbJumpLimits;
     private bool isGrounded = true;
     public LayerMask groundLayer;
+    private float dbJump;
     private float groundCheckTimer = 0f;
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
@@ -30,6 +36,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        SprintSpeed = (MoveSpeed * 2);
+        dbJump = dbJumpLimits;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cameraTransform = Camera.main.transform;
@@ -50,9 +58,20 @@ public class Player : MonoBehaviour
 
         RotateCamera();
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(sprint))
         {
-            Jump();
+            Debug.Log("SPEED");
+            MoveSpeed *= 2f;
+        }
+        if (Input.GetKeyUp(sprint))
+        {
+            Debug.Log("No speed");
+            MoveSpeed = 15f;
+        }
+
+        if (Input.GetKeyDown(jump))
+        {
+            dbJumpLimit();
         }
 
         // Checking when we're on the ground and keeping track of our ground check delay
@@ -104,8 +123,34 @@ public class Player : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
+    void dbJumpLimit()
+    {
+        if (isGrounded) 
+        {
+            dbJump = dbJumpLimits;
+        }
+        if (dbJump == 0)
+        {
+            //Jump();
+            //isGrounded = false;
+        }
+        else if (dbJump >= 1)
+        {
+            Jump();
+        }
+
+    }
+
     void Jump()
     {
+        if (dbJump >= 1)
+        {
+            dbJump--;
+        }
+        if (dbJump <= 0)
+        {
+            dbJump = 0;
+        }
         isGrounded = false;
         groundCheckTimer = groundCheckDelay;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z); // Initial burst for the jump
