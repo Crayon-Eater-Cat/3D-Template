@@ -16,7 +16,14 @@ public class Player1 : MonoBehaviour
 
     // Ground Movement
     private Rigidbody rb;
-    public float MoveSpeed = 5f;
+    public float MoveSpeed;
+    public float StartSpeed = 50f;
+    public float DashTimerBase;
+    private float DashTimer;
+    public float DashCDBase;
+    private float DashCD;
+    private bool DashUse = true;
+    private bool startDash = false;
     private float SprintSpeed;
     private float moveHorizontal;
     private float moveForward;
@@ -36,6 +43,9 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
+        DashTimer = DashTimerBase;
+        DashCD = DashCDBase;
+
         SprintSpeed = (MoveSpeed * 2);
         dbJump = dbJumpLimits;
         rb = GetComponent<Rigidbody>();
@@ -58,17 +68,33 @@ public class Player1 : MonoBehaviour
 
         RotateCamera();
 
-        if (Input.GetKeyDown(sprint))
+        if (Input.GetKey(sprint) && DashUse)
         {
             Debug.Log("SPEED");
-            MoveSpeed *= 2f;
+            MoveSpeed = 500f;
+            startDash = true;
+            DashCD = DashCDBase;
         }
         if (Input.GetKeyUp(sprint))
         {
             Debug.Log("No speed");
-            MoveSpeed = 15f;
+            MoveSpeed = StartSpeed;
         }
-
+        if (startDash)
+        {
+            DashTimer -= Time.deltaTime;
+            if (DashTimer <= 0)
+            {
+                DashTimer = 0;
+                MoveSpeed = 50f;
+                DashUse = false;
+                DashCD -= Time.deltaTime;
+            }
+        }
+        if (DashCD <= 0)
+        {
+            DashTimer = DashTimerBase;
+        }
         if (Input.GetKeyDown(jump))
         {
             dbJumpLimit();

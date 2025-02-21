@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 192197359153455471}
   - component: {fileID: 6196772558595534414}
   - component: {fileID: 3500591761614819725}
+  - component: {fileID: 223620163931456913}
+  - component: {fileID: 1797877395590573834}
   m_Layer: 0
   m_Name: Boduy
   m_TagString: Untagged
@@ -151,7 +153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146576527674777165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9aad18f3c7b7de4e941acd260c4feff, type: 3}
   m_Name: 
@@ -164,6 +166,46 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &223620163931456913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146576527674777165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f37fbce89ca7a446bf5842d8b033267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump: 32
+  forward: 0
+  backward: 0
+  left: 0
+  right: 0
+  sprint: 304
+  mouseSensitivity: 2
+  MoveSpeed: 30
+  jumpForce: 40
+  fallMultiplier: 8
+  ascendMultiplier: 10
+  dbJumpLimits: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &1797877395590573834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146576527674777165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c060727ddd411d4dbe3cade2e4af5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 114
 --- !u!1 &2354110621801849853
 GameObject:
   m_ObjectHideFlags: 0
