@@ -8,6 +8,7 @@ public class GrapplingGun : MonoBehaviour
     public Transform guntip, camera, player;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    public KeyCode Pfire;
 
     private void Awake()
     {
@@ -16,11 +17,11 @@ public class GrapplingGun : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(Pfire))
         {
             startGrapple();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyUp(Pfire))
         {
             StopGrapple();
         }
