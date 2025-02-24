@@ -94,6 +94,7 @@ public class Player1 : MonoBehaviour
         if (DashCD <= 0)
         {
             DashTimer = DashTimerBase;
+            DashUse = true;
         }
         if (Input.GetKeyDown(jump))
         {
