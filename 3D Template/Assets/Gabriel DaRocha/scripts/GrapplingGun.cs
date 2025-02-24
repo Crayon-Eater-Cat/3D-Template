@@ -15,6 +15,7 @@ public class GrapplingGun : MonoBehaviour
     }
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             startGrapple();
@@ -23,6 +24,10 @@ public class GrapplingGun : MonoBehaviour
         {
             StopGrapple();
         }
+    }
+    private void LateUpdate()
+    {
+        DrawRope();
     }
     void startGrapple()
     {
@@ -42,12 +47,29 @@ public class GrapplingGun : MonoBehaviour
             joint.spring = 4.5f;
             joint.damper = 7f;
             joint.massScale = 4.5f;
+
+            lr.positionCount = 2;
         }
         
     }
-
+    void DrawRope()
+    {
+        if (!joint) return;
+        lr.SetPosition(0, guntip.position);
+        lr.SetPosition(1, grapplePoint);
+    }
     void StopGrapple()
     {
+        lr.positionCount = 0;
+        Destroy(joint);
+    }
+    public bool IsGrappling()
+    {
+        return joint == null;
+    }
 
+    public Vector3 GetGrapplePoints()
+    {
+        return grapplePoint;
     }
 }
