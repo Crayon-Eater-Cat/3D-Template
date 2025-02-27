@@ -133,10 +133,10 @@ public class Player1 : MonoBehaviour
         rb.linearVelocity = velocity;
       
         // If we aren't moving and are on the ground, stop velocity so we don't slide
-        if (isGrounded && moveHorizontal == 0 && moveForward == 0)
-        {
-            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-        }
+        //if (isGrounded && moveHorizontal == 0 && moveForward == 0)
+        //{
+        //    rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+        //}
     }
 
     void RotateCamera()
