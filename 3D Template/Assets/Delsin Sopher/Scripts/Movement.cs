@@ -8,12 +8,12 @@ public class Player1 : MonoBehaviour
 {
     // Keybinds
     public KeyCode jump, forward, backward, left, right, sprint;
-
+    
     // Camera Rotation
     public float mouseSensitivity = 2f;
     private float verticalRotation = 0f;
     private Transform cameraTransform;
-
+    
     // Ground Movement
     private Rigidbody rb;
     public float MoveSpeed;
@@ -27,7 +27,7 @@ public class Player1 : MonoBehaviour
     private float SprintSpeed;
     private float moveHorizontal;
     private float moveForward;
-
+    
     // Jumping
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
@@ -131,7 +131,7 @@ public class Player1 : MonoBehaviour
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
         rb.linearVelocity = velocity;
-
+      
         // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
         {
