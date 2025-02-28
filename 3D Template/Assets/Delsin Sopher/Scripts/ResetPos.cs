@@ -10,7 +10,7 @@ public class ResetPos : MonoBehaviour
     {
         if (Input.GetKeyDown(reset))
         {
-            transform.position = new Vector3(0, 0, 0);
+            transform.position = new Vector3(0, 5, 0);
         }
     }
 }

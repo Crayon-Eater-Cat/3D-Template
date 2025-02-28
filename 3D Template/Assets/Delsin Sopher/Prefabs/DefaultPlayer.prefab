@@ -648,9 +648,9 @@ Transform:
   m_GameObject: {fileID: 8013200269348895419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.35, y: -0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.752, y: 0.159, z: 0.369}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2633138670030171225}
   m_Father: {fileID: 8237133393795547919}
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGrappleable:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   guntip: {fileID: 2633138670030171225}
   camera: {fileID: 6244162356738314933}
   player: {fileID: 8237133393795547919}
