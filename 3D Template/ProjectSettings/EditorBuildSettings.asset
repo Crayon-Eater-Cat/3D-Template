@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Delsin Sopher/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Gabriel DaRocha/testing.unity
+    guid: 28e107eeee58a284fb1aafc8c4217f48
+  - enabled: 1
+    path: Assets/Scenes/GabeLevel.unity
+    guid: c1e769b714cd0a44a97bbd38e04c8326
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 450face5ac96f0848a24c450942255ec,
       type: 3}
