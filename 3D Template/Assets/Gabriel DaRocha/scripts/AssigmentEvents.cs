@@ -15,10 +15,13 @@ public class AssigmentEvents : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) { 
+        if (Input.GetMouseButtonDown(1))
+        { 
             var raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(raycast))
-            onclick.Invoke();
+            {
+                onclick.Invoke();
+            }
         }
     }
     public void SwitchScene(string sceneName)
